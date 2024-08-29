@@ -20,7 +20,11 @@ async function getDatabase() {
 
     //directly giving db name in connection string
     //connect will return promise so we can use then and catch
-    mongoose.connect('mongodb://127.0.0.1:27017/library').then(()=>{
+    // mongoose.connect('mongodb://127.0.0.1:27017/library').then(()=>{
+    
+        /**ATLAS DB LINK */
+        const password = encodeURIComponent('root')//will encode complex passwords with special keywords
+    mongoose.connect('mongodb+srv://root:'+password+'@cluster0.r34np.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0').then(()=>{
         console.log("Database connected");
         
     }).catch(()=>{
